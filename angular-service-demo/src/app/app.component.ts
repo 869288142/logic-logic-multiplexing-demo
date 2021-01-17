@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CounterService } from './counter-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-service-demo';
+  constructor( counterService: CounterService) {
+    this.counterService = counterService
+    this.$count = this.counterService.$count
+  }
+  counterService: CounterService
+  $count
+  reset() {
+    this.counterService.reset()
+  }
+  increase(){
+    this.counterService.increase()
+  }
+  decrease() {
+    this.counterService.decrease()
+  }
 }

@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect} from 'react';
+import useCounter from './use/useCounter';
 import './App.css';
 
-function App() {
+function Counter({initialCount = 0}: { initialCount: number } ) {
+  const { count, reset, decrease, increase }  = useCounter(initialCount)
+  
+  useEffect(() => {
+    console.log('count changed!', count)
+  }, [count])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      Count: {count}
+      <button onClick={reset}>Reset</button>
+      <button onClick={increase}>+</button>
+      <button onClick={decrease}>-</button>
+    </>
   );
 }
 
-export default App;
+export default Counter;

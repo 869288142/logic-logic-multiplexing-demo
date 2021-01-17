@@ -1,9 +1,11 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-
-  <!-- Highlight Card -->
-
-    <span>{{ title }} app is running!</span>
+  <div>
+    Count: {{$count | async}}
+    <button (click)="reset()">Reset</button>
+    <button (click)="increase()">+</button>
+    <button (click)="decrease()">-</button>
+  </div>
 
 </div>
 

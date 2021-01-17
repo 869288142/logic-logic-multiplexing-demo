@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "../vue3-hook/src/Counter.tsx"  ]
 }
